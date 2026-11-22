@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="100%" height="380">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0b0e"/>
+      <stop offset="100%" stop-color="#111116"/>
+    </linearGradient>
+    <radialGradient id="lensGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d6cbb8" stop-opacity="0.16"/>
+      <stop offset="65%" stop-color="#d6cbb8" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#0b0b0e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d6cbb8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#f5f2eb" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#d6cbb8" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="demoClip">
+      <rect x="1" y="1" width="958" height="378" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    .serif { font-family: "New York", "Iowan Old Style", Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", serif; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace; }
+
+    @keyframes pulseRing {
+      0%, 100% { transform: scale(1); opacity: 0.55; }
+      50% { transform: scale(1.06); opacity: 0.95; }
+    }
+    @keyframes flowDotIn {
+      0% { transform: translateX(0px); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateX(132px); opacity: 0; }
+    }
+    @keyframes flowDotOut {
+      0% { transform: translateX(0px); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateX(118px); opacity: 0; }
+    }
+    @keyframes row1 {
+      0%, 100% { opacity: 1; }
+      33%, 66% { opacity: 0.45; }
+    }
+    @keyframes row2 {
+      0%, 66%, 100% { opacity: 0.45; }
+      33% { opacity: 1; }
+    }
+    @keyframes row3 {
+      0%, 33%, 100% { opacity: 0.45; }
+      66% { opacity: 1; }
+    }
+
+    .lens-ring { animation: pulseRing 6s ease-in-out infinite; transform-origin: 404px 186px; }
+    .dot-in { animation: flowDotIn 3.6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    .dot-out { animation: flowDotOut 3.6s cubic-bezier(0.4, 0, 0.2, 1) 1.2s infinite; }
+    .r1 { animation: row1 9s ease-in-out infinite; }
+    .r2 { animation: row2 9s ease-in-out infinite; }
+    .r3 { animation: row3 9s ease-in-out infinite; }
+  </style>
+
+  <g clip-path="url(#demoClip)">
+    <!-- Canvas -->
+    <rect x="0" y="0" width="960" height="380" fill="url(#bg2)"/>
+
+    <!-- Top Editorial Caption -->
+    <text x="48" y="46" fill="#78756e" font-size="11" letter-spacing="3.5" class="mono">ARCHITECTURE OF CLARITY</text>
+    <text x="912" y="46" text-anchor="end" fill="#52525b" font-size="11" letter-spacing="2" class="mono">OSS-QUICK-BRIEF · V0.3</text>
+    <line x1="48" y1="62" x2="912" y2="62" stroke="#1f1f24" stroke-width="1"/>
+
+    <!-- LEFT: Complex Input (Chaos -> Signal) -->
+    <g transform="translate(48, 114)">
+      <text x="0" y="0" fill="#78756e" font-size="11" letter-spacing="2.5" class="mono">INPUT</text>
+      <text x="0" y="34" fill="#f5f2eb" font-size="22" font-weight="400" class="serif">陌生开源仓库</text>
+      <text x="0" y="60" fill="#a1a1aa" font-size="13" font-weight="300" class="sans">GitHub 链接 · 项目名 · 本地目录</text>
+
+      <!-- Abstract Lines Representing Dense Docs & Code -->
+      <g transform="translate(0, 86)" stroke="#3f3f46" stroke-width="1" stroke-linecap="round">
+        <line x1="0" y1="0" x2="156" y2="0"/>
+        <line x1="0" y1="14" x2="112" y2="14" stroke-opacity="0.7"/>
+        <line x1="0" y1="28" x2="142" y2="28" stroke-opacity="0.5"/>
+        <line x1="0" y1="42" x2="88" y2="42" stroke-opacity="0.35"/>
+      </g>
+      <text x="0" y="156" fill="#52525b" font-size="11.5" class="sans">英文长文档 · 营销黑话 · 万行源码</text>
+    </g>
+
+    <!-- Connector In -->
+    <line x1="226" y1="186" x2="340" y2="186" stroke="#27272a" stroke-width="1"/>
+    <circle class="dot-in" cx="226" cy="186" r="2.2" fill="#d6cbb8"/>
+
+    <!-- CENTER: Distillation Lens -->
+    <g>
+      <circle cx="404" cy="186" r="88" fill="url(#lensGlow)"/>
+      <circle cx="404" cy="186" r="62" fill="#0d0d11" stroke="#3f3f46" stroke-width="1"/>
+      <circle class="lens-ring" cx="404" cy="186" r="48" fill="none" stroke="#d6cbb8" stroke-width="0.9" stroke-dasharray="3 5"/>
+      <text x="404" y="182" text-anchor="middle" fill="#f5f2eb" font-size="18" font-style="italic" class="serif">Distill</text>
+      <text x="404" y="204" text-anchor="middle" fill="#a8a29e" font-size="11" letter-spacing="2" class="sans">去噪 · 归简</text>
+    </g>
+
+    <!-- Connector Out (Branching Elegantly to 3 Pillars) -->
+    <g stroke="#27272a" stroke-width="1" fill="none">
+      <path d="M 466 186 L 526 186"/>
+      <path d="M 526 186 C 556 186, 556 118, 586 118"/>
+      <path d="M 526 186 L 586 186"/>
+      <path d="M 526 186 C 556 186, 556 254, 586 254"/>
+    </g>
+    <circle class="dot-out" cx="468" cy="186" r="2.2" fill="#f5f2eb"/>
+
+    <!-- RIGHT: Ordered Output (3 Editorial Rows, No Heavy Boxes) -->
+    <!-- Row 1 -->
+    <g class="r1" transform="translate(604, 100)">
+      <text x="0" y="14" fill="#d6cbb8" font-size="14" font-style="italic" class="serif">I.</text>
+      <text x="28" y="14" fill="#f5f2eb" font-size="16" font-weight="500" letter-spacing="1" class="sans">干嘛的</text>
+      <text x="92" y="14" fill="#78756e" font-size="11" letter-spacing="1.5" class="mono">WHAT</text>
+      <text x="28" y="38" fill="#a1a1aa" font-size="13" font-weight="300" class="sans">25 字精准定位 + 生活化类比与极简流程图</text>
+      <line x1="0" y1="54" x2="308" y2="54" stroke="#27272a" stroke-width="0.8"/>
+    </g>
+
+    <!-- Row 2 -->
+    <g class="r2" transform="translate(604, 168)">
+      <text x="0" y="14" fill="#d6cbb8" font-size="14" font-style="italic" class="serif">II.</text>
+      <text x="28" y="14" fill="#f5f2eb" font-size="16" font-weight="500" letter-spacing="1" class="sans">为什么</text>
+      <text x="92" y="14" fill="#78756e" font-size="11" letter-spacing="1.5" class="mono">WHY</text>
+      <text x="28" y="38" fill="#a1a1aa" font-size="13" font-weight="300" class="sans">还原旧工具痛点 + 同类项目选型对照表</text>
+      <line x1="0" y1="54" x2="308" y2="54" stroke="#27272a" stroke-width="0.8"/>
+    </g>
+
+    <!-- Row 3 -->
+    <g class="r3" transform="translate(604, 236)">
+      <text x="0" y="14" fill="#d6cbb8" font-size="14" font-style="italic" class="serif">III.</text>
+      <text x="28" y="14" fill="#f5f2eb" font-size="16" font-weight="500" letter-spacing="1" class="sans">怎么用</text>
+      <text x="92" y="14" fill="#78756e" font-size="11" letter-spacing="1.5" class="mono">HOW</text>
+      <text x="28" y="38" fill="#a1a1aa" font-size="13" font-weight="300" class="sans">≤15 行最小体验 + 成本避坑与学习决策</text>
+      <line x1="0" y1="54" x2="308" y2="54" stroke="#27272a" stroke-width="0.8"/>
+    </g>
+
+    <!-- Bottom Architectural Scale Footer -->
+    <line x1="48" y1="328" x2="912" y2="328" stroke="#1f1f24" stroke-width="1"/>
+    <text x="48" y="354" fill="#78756e" font-size="11" letter-spacing="2.5" class="mono">3 MIN READ</text>
+    <text x="480" y="354" text-anchor="middle" fill="#78756e" font-size="11" letter-spacing="2.5" class="mono">ZERO SOURCE NOISE · ZERO UNEXPLAINED JARGON</text>
+    <text x="912" y="354" text-anchor="end" fill="#d6cbb8" font-size="11" letter-spacing="2.5" class="mono">STUDENT FIRST</text>
+  </g>
+
+  <!-- Outer Frame -->
+  <rect x="1" y="1" width="958" height="378" rx="14" fill="none" stroke="#27272a" stroke-width="1"/>
+</svg>
