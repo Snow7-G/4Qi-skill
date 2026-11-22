@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/hero-banner.svg" alt="4Qi-skill Banner" width="100%" />
+<img src="./assets/hero-banner.svg?v=4" alt="4Qi-skill Banner" width="100%" />
 
 <br />
 
@@ -42,7 +42,7 @@
 ## ✨ 动态效果演示
 
 <div align="center">
-  <img src="./assets/demo-workflow.svg" alt="oss-quick-brief 动态工作流演示" width="100%" />
+  <img src="./assets/demo-workflow.svg?v=4" alt="oss-quick-brief 动态工作流演示" width="100%" />
 </div>
 
 <details>
