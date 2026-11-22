@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" width="100%" height="280">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1020"/>
+      <stop offset="50%" stop-color="#111936"/>
+      <stop offset="100%" stop-color="#0d1b2a"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.6"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a78bfa" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#94a3b8" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <clipPath id="cardClip">
+      <rect x="2" y="2" width="956" height="276" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    .font-sans { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif; }
+    .font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+
+    @keyframes float1 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      50% { transform: translate(26px, -16px) scale(1.08); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translate(0px, 0px) scale(1); }
+      50% { transform: translate(-24px, 18px) scale(1.06); }
+    }
+    @keyframes scan {
+      0% { transform: translateX(-220px); opacity: 0; }
+      20% { opacity: 0.45; }
+      80% { opacity: 0.45; }
+      100% { transform: translateX(1100px); opacity: 0; }
+    }
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+    @keyframes pillGlow1 {
+      0%, 100% { stroke-opacity: 0.35; fill-opacity: 0.12; }
+      33% { stroke-opacity: 0.95; fill-opacity: 0.24; }
+    }
+    @keyframes pillGlow2 {
+      0%, 100% { stroke-opacity: 0.35; fill-opacity: 0.12; }
+      66% { stroke-opacity: 0.95; fill-opacity: 0.24; }
+    }
+    @keyframes pillGlow3 {
+      0%, 100% { stroke-opacity: 0.95; fill-opacity: 0.24; }
+      50% { stroke-opacity: 0.35; fill-opacity: 0.12; }
+    }
+
+    .orb-a { animation: float1 7s ease-in-out infinite; }
+    .orb-b { animation: float2 8.5s ease-in-out infinite; }
+    .scan-line { animation: scan 5.5s linear infinite; }
+    .dot-pulse { animation: pulseDot 2s ease-in-out infinite; transform-origin: 368px 52px; }
+    .pill-1 { animation: pillGlow1 4.5s ease-in-out infinite; }
+    .pill-2 { animation: pillGlow2 4.5s ease-in-out infinite; }
+    .pill-3 { animation: pillGlow3 4.5s ease-in-out infinite; }
+  </style>
+
+  <g clip-path="url(#cardClip)">
+    <!-- Base Background -->
+    <rect x="0" y="0" width="960" height="280" fill="url(#bg)"/>
+    <rect x="0" y="0" width="960" height="280" fill="url(#grid)"/>
+
+    <!-- Ambient Orbs -->
+    <circle class="orb-a" cx="190" cy="70" r="170" fill="url(#orb1)"/>
+    <circle class="orb-b" cx="790" cy="220" r="190" fill="url(#orb2)"/>
+
+    <!-- Subtle Light Sweep -->
+    <rect class="scan-line" x="0" y="0" width="140" height="280" fill="url(#titleGrad)" opacity="0.06" transform="skewX(-20)"/>
+
+    <!-- Top Status Pill -->
+    <rect x="350" y="36" width="260" height="32" rx="16" fill="#1e293b" fill-opacity="0.75" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="1"/>
+    <circle class="dot-pulse" cx="368" cy="52" r="4.5" fill="#34d399"/>
+    <text x="383" y="57" fill="#cbd5e1" font-size="13" font-weight="500" class="font-mono">AI Agent Skills · Antigravity Ready</text>
+
+    <!-- Main Title -->
+    <text x="480" y="132" text-anchor="middle" fill="url(#titleGrad)" font-size="52" font-weight="800" letter-spacing="1.5" class="font-sans">4Qi-skill</text>
+
+    <!-- Subtitle -->
+    <text x="480" y="172" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="500" class="font-sans">面向计算机学生的 AI 技能库 · 让陌生开源项目 3 分钟祛魅</text>
+
+    <!-- Feature Pills -->
+    <g transform="translate(216, 204)">
+      <rect class="pill-1" x="0" y="0" width="160" height="38" rx="19" fill="#38bdf8" stroke="#38bdf8" stroke-width="1.2"/>
+      <text x="80" y="24" text-anchor="middle" fill="#e0f2fe" font-size="14" font-weight="600" class="font-sans">What · 干嘛的</text>
+
+      <rect class="pill-2" x="184" y="0" width="160" height="38" rx="19" fill="#a78bfa" stroke="#a78bfa" stroke-width="1.2"/>
+      <text x="264" y="24" text-anchor="middle" fill="#ede9fe" font-size="14" font-weight="600" class="font-sans">Why · 为什么</text>
+
+      <rect class="pill-3" x="368" y="0" width="160" height="38" rx="19" fill="#34d399" stroke="#34d399" stroke-width="1.2"/>
+      <text x="448" y="24" text-anchor="middle" fill="#d1fae5" font-size="14" font-weight="600" class="font-sans">How · 怎么用</text>
+    </g>
+  </g>
+
+  <!-- Card Border -->
+  <rect x="2" y="2" width="956" height="276" rx="18" fill="none" stroke="url(#borderGrad)" stroke-width="1.5"/>
+</svg>
