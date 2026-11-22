@@ -1,118 +1,115 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" width="100%" height="280">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="100%" height="320">
   <defs>
-    <!-- Deep Obsidian Silk Surface -->
-    <linearGradient id="canvasBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#09090b"/>
-      <stop offset="55%" stop-color="#111116"/>
-      <stop offset="100%" stop-color="#0b0c10"/>
+    <linearGradient id="obsidian" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0b0e"/>
+      <stop offset="50%" stop-color="#111116"/>
+      <stop offset="100%" stop-color="#09090c"/>
     </linearGradient>
-
-    <!-- Subtle Pearlescent Top Glow -->
-    <radialGradient id="topGlow" cx="50%" cy="0%" r="65%">
-      <stop offset="0%" stop-color="#e4e4e7" stop-opacity="0.11"/>
-      <stop offset="55%" stop-color="#a5b4fc" stop-opacity="0.04"/>
-      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+    <radialGradient id="pearlGlow" cx="50%" cy="46%" r="52%">
+      <stop offset="0%" stop-color="#f4f1ea" stop-opacity="0.08"/>
+      <stop offset="55%" stop-color="#c7d2fe" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#09090c" stop-opacity="0"/>
     </radialGradient>
-
-    <!-- Refined Silver-White Title Gradient -->
-    <linearGradient id="silverText" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#a1a1aa"/>
+    <linearGradient id="ivoryTitle" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faf8f5"/>
+      <stop offset="100%" stop-color="#b8b4ac"/>
     </linearGradient>
-
-    <!-- Hairline Specular Highlight -->
-    <linearGradient id="hairlineGlow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#e4e4e7" stop-opacity="0.75"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    <linearGradient id="goldRule" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d6cbb8" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#d6cbb8" stop-opacity="0.45"/>
+      <stop offset="75%" stop-color="#d6cbb8" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#d6cbb8" stop-opacity="0"/>
     </linearGradient>
-
-    <!-- Divider Fade -->
-    <linearGradient id="dividerFade" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#27272a" stop-opacity="0"/>
-      <stop offset="20%" stop-color="#3f3f46" stop-opacity="0.8"/>
-      <stop offset="80%" stop-color="#3f3f46" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#27272a" stop-opacity="0"/>
-    </linearGradient>
-
-    <clipPath id="frameClip">
-      <rect x="1" y="1" width="958" height="278" rx="16"/>
+    <clipPath id="heroClip">
+      <rect x="1" y="1" width="958" height="318" rx="14"/>
     </clipPath>
   </defs>
 
   <style>
-    .sans { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif; }
-    .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace; }
+    .serif { font-family: "New York", "Iowan Old Style", Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", serif; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace; }
 
-    @keyframes breathe {
-      0%, 100% { opacity: 0.75; }
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes slowSpinRev {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+    @keyframes gentleFade {
+      0%, 100% { opacity: 0.65; }
       50% { opacity: 1; }
     }
-    @keyframes glide {
-      0% { transform: translateX(-260px); opacity: 0; }
-      15% { opacity: 1; }
-      85% { opacity: 1; }
-      100% { transform: translateX(1020px); opacity: 0; }
+    @keyframes pillar1 {
+      0%, 100% { fill: #f5f2eb; }
+      33%, 66% { fill: #78756e; }
     }
-    @keyframes focus1 {
-      0%, 100% { fill: #fafafa; }
-      33%, 66% { fill: #71717a; }
+    @keyframes pillar2 {
+      0%, 66%, 100% { fill: #78756e; }
+      33% { fill: #f5f2eb; }
     }
-    @keyframes focus2 {
-      0%, 66%, 100% { fill: #71717a; }
-      33% { fill: #fafafa; }
-    }
-    @keyframes focus3 {
-      0%, 33%, 100% { fill: #71717a; }
-      66% { fill: #fafafa; }
-    }
-    @keyframes dotSlide {
-      0%, 100% { transform: translateX(0px); }
-      33% { transform: translateX(176px); }
-      66% { transform: translateX(352px); }
+    @keyframes pillar3 {
+      0%, 33%, 100% { fill: #78756e; }
+      66% { fill: #f5f2eb; }
     }
 
-    .ambient { animation: breathe 8s ease-in-out infinite; }
-    .specular { animation: glide 7s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
-    .t1 { animation: focus1 7.5s ease-in-out infinite; }
-    .t2 { animation: focus2 7.5s ease-in-out infinite; }
-    .t3 { animation: focus3 7.5s ease-in-out infinite; }
-    .dot-slide { animation: dotSlide 7.5s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    .ring-outer { animation: slowSpin 90s linear infinite; transform-origin: 480px 156px; }
+    .ring-inner { animation: slowSpinRev 65s linear infinite; transform-origin: 480px 156px; }
+    .aura { animation: gentleFade 9s ease-in-out infinite; }
+    .p1 { animation: pillar1 9s ease-in-out infinite; }
+    .p2 { animation: pillar2 9s ease-in-out infinite; }
+    .p3 { animation: pillar3 9s ease-in-out infinite; }
   </style>
 
-  <g clip-path="url(#frameClip)">
-    <!-- Background -->
-    <rect x="0" y="0" width="960" height="280" fill="url(#canvasBg)"/>
-    <ellipse class="ambient" cx="480" cy="0" rx="520" ry="190" fill="url(#topGlow)"/>
+  <g clip-path="url(#heroClip)">
+    <!-- Canvas -->
+    <rect x="0" y="0" width="960" height="320" fill="url(#obsidian)"/>
+    <ellipse class="aura" cx="480" cy="148" rx="460" ry="180" fill="url(#pearlGlow)"/>
 
-    <!-- Subtle Architectural Horizontal Rules -->
-    <rect x="0" y="1" width="220" height="1.5" fill="url(#hairlineGlow)" class="specular"/>
+    <!-- Architectural Concentric Orbits (Subtle Precision Instrument) -->
+    <g opacity="0.22">
+      <circle cx="480" cy="156" r="196" fill="none" stroke="#d6cbb8" stroke-width="0.7" stroke-dasharray="2 8" class="ring-outer"/>
+      <circle cx="480" cy="156" r="138" fill="none" stroke="#a1a1aa" stroke-width="0.6" stroke-dasharray="1 10" class="ring-inner"/>
+      <line x1="80" y1="156" x2="220" y2="156" stroke="#3f3f46" stroke-width="0.7"/>
+      <line x1="740" y1="156" x2="880" y2="156" stroke="#3f3f46" stroke-width="0.7"/>
+      <circle cx="220" cy="156" r="2" fill="#d6cbb8" fill-opacity="0.6"/>
+      <circle cx="740" cy="156" r="2" fill="#d6cbb8" fill-opacity="0.6"/>
+    </g>
 
-    <!-- Minimal Eyebrow -->
-    <text x="480" y="58" text-anchor="middle" fill="#a1a1aa" font-size="11.5" font-weight="500" letter-spacing="3.5" class="mono">4QI · AGENT SKILLS</text>
+    <!-- Corner Framing Marks -->
+    <g stroke="#3f3f46" stroke-width="1" fill="none">
+      <path d="M 24 38 L 24 24 L 38 24"/>
+      <path d="M 922 24 L 936 24 L 936 38"/>
+      <path d="M 24 282 L 24 296 L 38 296"/>
+      <path d="M 922 296 L 936 296 L 936 282"/>
+    </g>
 
-    <!-- Monumental Clean Title -->
-    <text x="480" y="128" text-anchor="middle" fill="url(#silverText)" font-size="54" font-weight="700" letter-spacing="-0.5" class="sans">4Qi-skill</text>
+    <!-- Eyebrow -->
+    <text x="480" y="64" text-anchor="middle" fill="#a8a29e" font-size="11" font-weight="400" letter-spacing="4.5" class="mono">OPEN SOURCE CLARITY · AGENT SKILLS</text>
 
-    <!-- Calm Spaced Subtitle -->
-    <text x="480" y="168" text-anchor="middle" fill="#a1a1aa" font-size="17" font-weight="400" letter-spacing="1.2" class="sans">面向计算机学生的开源认知技能 · 三分钟看懂任意项目</text>
+    <!-- Editorial Serif Main Title -->
+    <text x="480" y="148" text-anchor="middle" fill="url(#ivoryTitle)" font-size="64" font-weight="400" letter-spacing="2" class="serif">
+      <tspan>4Qi</tspan><tspan font-style="italic" fill="#d6cbb8" font-size="56"> · skill</tspan>
+    </text>
 
-    <!-- Fine Divider -->
-    <rect x="180" y="202" width="600" height="1" fill="url(#dividerFade)"/>
+    <!-- Spaced Poetic Subtitle -->
+    <text x="480" y="196" text-anchor="middle" fill="#d4d4d8" font-size="16" font-weight="300" letter-spacing="4.5" class="sans">繁复源码，三分钟归简</text>
 
-    <!-- Minimal Footer Pillars -->
-    <g transform="translate(244, 234)">
-      <text x="60" y="0" text-anchor="middle" font-size="13.5" font-weight="500" letter-spacing="1" class="sans t1">What · 干嘛的</text>
-      <circle cx="148" cy="-4" r="1.5" fill="#3f3f46"/>
-      <text x="236" y="0" text-anchor="middle" font-size="13.5" font-weight="500" letter-spacing="1" class="sans t2">Why · 为什么</text>
-      <circle cx="324" cy="-4" r="1.5" fill="#3f3f46"/>
-      <text x="412" y="0" text-anchor="middle" font-size="13.5" font-weight="500" letter-spacing="1" class="sans t3">How · 怎么用</text>
+    <!-- Delicate Gold-Champagne Hairline -->
+    <rect x="200" y="232" width="560" height="0.8" fill="url(#goldRule)"/>
 
-      <!-- Delicate Active Underline -->
-      <rect class="dot-slide" x="34" y="12" width="52" height="1.5" rx="0.75" fill="#e4e4e7"/>
+    <!-- Classical Roman Numeral Footer -->
+    <g transform="translate(0, 268)">
+      <text x="290" y="0" text-anchor="middle" font-size="13" letter-spacing="2" class="serif p1">I.  干嘛的</text>
+      <text x="385" y="-1" text-anchor="middle" fill="#3f3f46" font-size="12" class="serif">/</text>
+      <text x="480" y="0" text-anchor="middle" font-size="13" letter-spacing="2" class="serif p2">II.  为什么</text>
+      <text x="575" y="-1" text-anchor="middle" fill="#3f3f46" font-size="12" class="serif">/</text>
+      <text x="670" y="0" text-anchor="middle" font-size="13" letter-spacing="2" class="serif p3">III.  怎么用</text>
     </g>
   </g>
 
-  <!-- Crisp 1px Outer Frame -->
-  <rect x="1" y="1" width="958" height="278" rx="16" fill="none" stroke="#27272a" stroke-width="1"/>
+  <!-- Outer Frame -->
+  <rect x="1" y="1" width="958" height="318" rx="14" fill="none" stroke="#27272a" stroke-width="1"/>
 </svg>
