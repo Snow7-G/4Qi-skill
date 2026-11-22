@@ -6,7 +6,7 @@
 
 [![Skills](https://img.shields.io/badge/Skills-1%20Ready-38bdf8?style=for-the-badge&logo=sparkles&logoColor=white)](#-技能列表)
 [![Version](https://img.shields.io/badge/oss--quick--brief-v0.3-a78bfa?style=for-the-badge)](#-核心技能oss-quick-brief)
-[![Compatible](https://img.shields.io/badge/Antigravity-Compatible-34d399?style=for-the-badge)](#-极速安装)
+[![Compatible](https://img.shields.io/badge/Agents-Antigravity%20%7C%20Codex%20%7C%20Pi%20%7C%20WorkBuddy-34d399?style=for-the-badge)](#-极速安装)
 [![License](https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge)](https://github.com/Snow7-G/4Qi-skill)
 
 <p align="center">
@@ -92,28 +92,46 @@
 
 ---
 
-## 🚀 极速安装
+## 🚀 极速安装（终端一键配置）
 
-### 方式一：Antigravity 全局安装（推荐，所有对话自动触发）
+复制对应 Agent 的**单行命令**到终端回车即可自动拉取并安装完成（自动清理临时目录）：
 
+#### 1. Antigravity
 ```bash
-# 1. 克隆本仓库
-git clone https://github.com/Snow7-G/4Qi-skill.git
-
-# 2. 复制 Skill 到 Antigravity 全局技能目录
-mkdir -p ~/.gemini/config/skills
-cp -r 4Qi-skill/oss-quick-brief ~/.gemini/config/skills/
+git clone --depth 1 https://github.com/Snow7-G/4Qi-skill.git /tmp/4Qi-skill && mkdir -p ~/.gemini/config/skills && cp -r /tmp/4Qi-skill/oss-quick-brief ~/.gemini/config/skills/ && rm -rf /tmp/4Qi-skill
 ```
 
-### 方式二：单个项目内启用
-
+#### 2. Codex（OpenAI Codex CLI）
 ```bash
-# 复制到目标项目的 .agents/skills/ 目录即可
-mkdir -p .agents/skills
-cp -r 4Qi-skill/oss-quick-brief .agents/skills/
+git clone --depth 1 https://github.com/Snow7-G/4Qi-skill.git /tmp/4Qi-skill && mkdir -p ~/.codex/skills && cp -r /tmp/4Qi-skill/oss-quick-brief ~/.codex/skills/ && rm -rf /tmp/4Qi-skill
 ```
 
-> 💡 本仓库遵循标准 `SKILL.md` + `references/` 目录规范，同样易于迁移到其他支持自定义 Skill 的 AI Coding Agent。
+#### 3. Pi（pi-coding-agent）
+```bash
+git clone --depth 1 https://github.com/Snow7-G/4Qi-skill.git /tmp/4Qi-skill && mkdir -p ~/.pi/agent/skills && cp -r /tmp/4Qi-skill/oss-quick-brief ~/.pi/agent/skills/ && rm -rf /tmp/4Qi-skill
+```
+
+#### 4. WorkBuddy
+```bash
+git clone --depth 1 https://github.com/Snow7-G/4Qi-skill.git /tmp/4Qi-skill && mkdir -p ~/.workbuddy/skills && cp -r /tmp/4Qi-skill/oss-quick-brief ~/.workbuddy/skills/ && rm -rf /tmp/4Qi-skill
+```
+
+<details>
+<summary><b>⚡ 进阶：一条命令同时配置全部 4 个 Agent（或仅配置到当前项目）</b></summary>
+
+**同时安装到 Antigravity + Codex + Pi + WorkBuddy：**
+```bash
+git clone --depth 1 https://github.com/Snow7-G/4Qi-skill.git /tmp/4Qi-skill && for d in ~/.gemini/config/skills ~/.codex/skills ~/.pi/agent/skills ~/.workbuddy/skills; do mkdir -p "$d" && cp -r /tmp/4Qi-skill/oss-quick-brief "$d/"; done && rm -rf /tmp/4Qi-skill
+```
+
+**仅在当前仓库项目内启用（通用 `.agents/skills/` 标准）：**
+```bash
+git clone --depth 1 https://github.com/Snow7-G/4Qi-skill.git /tmp/4Qi-skill && mkdir -p .agents/skills && cp -r /tmp/4Qi-skill/oss-quick-brief .agents/skills/ && rm -rf /tmp/4Qi-skill
+```
+
+</details>
+
+> 💡 本仓库遵循标准 `SKILL.md` + `references/` 目录规范，安装路径一览：`Antigravity (~/.gemini/config/skills)` · `Codex (~/.codex/skills)` · `Pi (~/.pi/agent/skills)` · `WorkBuddy (~/.workbuddy/skills)`。
 
 ---
 
